@@ -1,0 +1,46 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+o o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Connecting ...
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS:
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉user꞉>  ; Use `alt+enter` to evaluate
+
+
+nil
+; WARNING: abs already refers to: #'clojure.core/abs in namespace: medley.core, being replaced by: #'medley.core/abs
+;
+; WARNING: abs already refers to: #'clojure.core/abs in namespace: taoensso.encore, being replaced by: #'taoensso.encore/abs
+;
+; WARNING: update-keys already refers to: #'clojure.core/update-keys in namespace: io.aviso.exception, being replaced by: #'io.aviso.exception/update-keys
+clj꞉stanthebear.oz꞉> 
+nil
+clj꞉stanthebear.oz꞉> 
+; Evaluating file: oz.clj
+23-02-09 19:12:46 CAPTS-CABIN INFO [oz.core:280] - Starting up server on port 10666
+23-02-09 19:12:46 CAPTS-CABIN INFO [oz.server:148] - Web server is running at `http://localhost:10666/`
+; Syntax error compiling at (oz/src/stanthebear/oz.clj:35:1).
+; Unable to resolve symbol: stacked-bar in this context
+; Evaluation of file oz.clj failed: class clojure.lang.Compiler$CompilerException
+clj꞉stanthebear.oz꞉> 
+#'stanthebear.oz/play-data
+clj꞉stanthebear.oz꞉> 
+#'stanthebear.oz/line-plot
+clj꞉stanthebear.oz꞉> 
+#'stanthebear.oz/stacked-bar
+clj꞉stanthebear.oz꞉> 
+nil
+clj꞉stanthebear.oz꞉> 
+23-02-09 19:15:59 CAPTS-CABIN INFO [oz.core:1192] - new connection established:  {:?reply-fn nil, :ch-recv #object[clojure.core.async.impl.channels.ManyToManyChannel 0x68122a2a "clojure.core.async.impl.channels.ManyToManyChannel@68122a2a"], :client-id "5b4e50d0-ffb3-4b00-aead-af69e4b2f330", :connected-uids #atom[{:ws #{#uuid "a1f7c898-46e4-434e-8b9d-2caff0034a85"}, :ajax #{}, :any #{#uuid "a1f7c898-46e4-434e-8b9d-2caff0034a85"}} 0x2d10a94c], :uid #uuid "a1f7c898-46e4-434e-8b9d-2caff0034a85", :event [:oz.app/connection-established], :id :oz.app/connection-established, :ring-req {:aleph/request-arrived 505481529475, :aleph/keep-alive? true, :cookies {"ring-session" {:value "130a3735-c4f7-4a29-b46c-0c410bdbcb3a"}}, :remote-addr "0:0:0:0:0:0:0:1", :params {:client-id "5b4e50d0-ffb3-4b00-aead-af69e4b2f330"}, :flash nil, :route-params {}, :headers {"origin" "http://localhost:10666", "host" "localhost:10666", "upgrade" "websocket", "user-agent" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.78", "cookie" "ring-session=130a3735-c4f7-4a29-b46c-0c410bdbcb3a", "connection" "Upgrade", "pragma" "no-cache", "sec-websocket-key" "hGQ0fk73e8xGXm8jVGJezw==", "accept-language" "en-GB,en;q=0.9,en-US;q=0.8", "sec-websocket-version" "13", "accept-encoding" "gzip, deflate, br", "sec-websocket-extensions" "permessage-deflate; client_max_window_bits", "cache-control" "no-cache"}, :server-port 10666, :form-params {}, :compojure/route [:get "/chsk"], :session/key "130a3735-c4f7-4a29-b46c-0c410bdbcb3a", :query-params {"client-id" "5b4e50d0-ffb3-4b00-aead-af69e4b2f330"}, :uri "/chsk", :server-name "ip6-localhost", :anti-forgery-token "vfkgyz/6d+de2IMXAR499R+6kkIciwvoBTqkoCqsHVn5/EmALzdAtdB4pBhVE4z8LxKfE+Y08jBxDEoy", :query-string "client-id=5b4e50d0-ffb3-4b00-aead-af69e4b2f330", :body nil, :multipart-params {}, :scheme :http, :request-method :get, :session {:uid "b0461afd-7fe4-4779-b7dc-af2d07ce0737", :ring.middleware.anti-forgery/anti-forgery-token "vfkgyz/6d+de2IMXAR499R+6kkIciwvoBTqkoCqsHVn5/EmALzdAtdB4pBhVE4z8LxKfE+Y08jBxDEoy"}}, :?data nil, :send-fn #function[taoensso.sente/make-channel-socket-server!/send-fn--26444]}
+nil
+clj꞉stanthebear.oz꞉> 
