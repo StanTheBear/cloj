@@ -22,3 +22,18 @@ nil
 ;
 ; WARNING: update-keys already refers to: #'clojure.core/update-keys in namespace: io.aviso.exception, being replaced by: #'io.aviso.exception/update-keys
 clj꞉stanthebear.oz꞉> 
+#'stanthebear.oz/play-data
+clj꞉stanthebear.oz꞉> 
+#'stanthebear.oz/line-plot
+clj꞉stanthebear.oz꞉> 
+23-02-10 17:13:55 CAPTS-CABIN INFO [oz.core:280] - Starting up server on port 10666
+23-02-10 17:13:55 CAPTS-CABIN INFO [oz.server:148] - Web server is running at `http://localhost:10666/`
+nil
+clj꞉stanthebear.oz꞉> 
+23-02-10 17:14:04 CAPTS-CABIN INFO [oz.core:1192] - new connection established:  {:?reply-fn nil, :ch-recv #object[clojure.core.async.impl.channels.ManyToManyChannel 0xe74a380 "clojure.core.async.impl.channels.ManyToManyChannel@e74a380"], :client-id "d5ae2db4-0e49-4ab7-a45e-e6fa8d182ff4", :connected-uids #atom[{:ws #{#uuid "a2eaa05b-19be-492a-b922-1d03b402ab23"}, :ajax #{}, :any #{#uuid "a2eaa05b-19be-492a-b922-1d03b402ab23"}} 0x4b762c2a], :uid #uuid "a2eaa05b-19be-492a-b922-1d03b402ab23", :event [:oz.app/connection-established], :id :oz.app/connection-established, :ring-req {:aleph/request-arrived 6625551449841, :aleph/keep-alive? true, :cookies {"ring-session" {:value "7d965439-4976-421d-9058-1a405f08b229"}}, :remote-addr "0:0:0:0:0:0:0:1", :params {:client-id "d5ae2db4-0e49-4ab7-a45e-e6fa8d182ff4"}, :flash nil, :route-params {}, :headers {"origin" "http://localhost:10666", "host" "localhost:10666", "upgrade" "websocket", "user-agent" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36 Edg/110.0.1587.41", "cookie" "ring-session=7d965439-4976-421d-9058-1a405f08b229", "connection" "Upgrade", "pragma" "no-cache", "sec-websocket-key" "akVRIQ/Kboonr2y1cM4EAw==", "accept-language" "en-GB,en;q=0.9,en-US;q=0.8", "sec-websocket-version" "13", "accept-encoding" "gzip, deflate, br", "sec-websocket-extensions" "permessage-deflate; client_max_window_bits", "cache-control" "no-cache"}, :server-port 10666, :form-params {}, :compojure/route [:get "/chsk"], :session/key "7d965439-4976-421d-9058-1a405f08b229", :query-params {"client-id" "d5ae2db4-0e49-4ab7-a45e-e6fa8d182ff4"}, :uri "/chsk", :server-name "ip6-localhost", :anti-forgery-token "y00neOSoOsHrXv1Or3S8nfBd83WSa/Cx2ntpK8zzFWxCcetCEuX1Icb6ZPvEvqnZ5wSNwTY8bGqIu+3l", :query-string "client-id=d5ae2db4-0e49-4ab7-a45e-e6fa8d182ff4", :body nil, :multipart-params {}, :scheme :http, :request-method :get, :session #:ring.middleware.anti-forgery{:anti-forgery-token "y00neOSoOsHrXv1Or3S8nfBd83WSa/Cx2ntpK8zzFWxCcetCEuX1Icb6ZPvEvqnZ5wSNwTY8bGqIu+3l"}}, :?data nil, :send-fn #function[taoensso.sente/make-channel-socket-server!/send-fn--26188]}
+#'stanthebear.oz/comb2
+clj꞉stanthebear.oz꞉> 
+([10 20] [10 11] [20 11] [10 30] [20 30] [11 30])
+clj꞉stanthebear.oz꞉> 
+([10 20] [10 11] [20 11] [10 30] [20 30] [11 30])
+clj꞉stanthebear.oz꞉> 

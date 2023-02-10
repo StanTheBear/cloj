@@ -60,7 +60,14 @@
 
 (oz/view! stacked-bar)
 
+(defn comb2 [coll]
+  (for [x (range 1 (count coll))
+        y (range 0 x)]
+    [(nth coll y) (nth coll x)]))
 
+(comb2 [10 20 11 30])
+
+(comb2 '(10 20 11 30))
 
 (comment
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
