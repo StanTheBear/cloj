@@ -1,7 +1,6 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}
         metasoarous/oz {:mvn/version "2.0.0-alpha5"}
-        #_ cheshire/cheshire {:mvn/version "5.11.0"}
         }
  :aliases
  {:run-m {:main-opts ["-m" "stanthebear.oz"]}

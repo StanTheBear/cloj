@@ -2,6 +2,8 @@
   #_(:gen-class)
   (:require [oz.core :as oz]))
 
+"Hello from Oz"
+
 (defn play-data [& names]
   (for [n names
         i (range 50)]
@@ -32,6 +34,19 @@
 (def contour-plot (oz/load "/home/kali/.clojure/oz/examples/contourlines.vega.json"))
 (oz/view! contour-plot :mode :vega)
 
+(def stacked-bar
+  {:data {:values
+          (play-data "munchkin" "witch" "dog" "lion" "tiger" "bear")}
+   :mark "bar"
+   :encoding {:x {:field "time"
+                  :type "ordinal"}
+              :y {:aggregate "sum"
+                  :field "quantity"
+                  :type "quantitative"}
+              :color {:field "item"
+                      :type "nominal"}}})
+
+
 (def viz
   [:div
    [:h1 "Look ye and behold"]
@@ -47,18 +62,11 @@
 (oz/view! viz)
 
 
-(def stacked-bar
-  {:data {:values (play-data "munchkin" "witch" "dog" "lion" "tiger" "bear")}
-   :mark "bar"
-   :encoding {:x {:field "time"
-                  :type "ordinal"}
-              :y {:aggregate "sum"
-                  :field "quantity"
-                  :type "quantitative"}
-              :color {:field "item"
-                      :type "nominal"}}})
 
 (oz/view! stacked-bar)
+
+(prn {:items [{:foo :bar} {:foo2 :bar2}]})
+
 
 (defn comb2 [coll]
   (for [x (range 1 (count coll))
