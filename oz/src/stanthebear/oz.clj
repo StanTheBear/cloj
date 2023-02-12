@@ -1,6 +1,8 @@
 (ns stanthebear.oz
   #_(:gen-class)
-  (:require [oz.core :as oz]))
+  (:require [oz.core :as oz]
+            [clojure.core.reducers :as r]
+            [criterium.core :refer [bench]]))
 
 "Hello from Oz"
 
@@ -61,6 +63,27 @@
 
 (oz/view! viz)
 
+(reduce +  [0 3 5])
+
+(def inc4 #(+ % 4))
+(def inc-transducer (map inc4))
+
+(def bigvec  (into [] (take 200000 (iterate inc 5))))
+
+(type bigvec)
+
+(bench  (reduce (inc-transducer +) 0  bigvec))
+;; Execution time mean : 2.323954 ms
+
+(bench (transduce inc-transducer + 0 bigvec))
+;; Execution time mean : 2.007487 ms
+(println (int (* 100 (/ (- 2.324 2.07) 2.324))) "% quicker" )
+
+(r/fold + (r/map (fn [x] (+ x 4)) bigvec))
+
+(bench (r/fold + (r/map inc4 bigvec)))
+;; Execution time mean : 1.125059 ms
+(println (int (* 100 (/ (- 2.324 1.125) 2.324))) "% quicker")
 
 
 (oz/view! stacked-bar)
