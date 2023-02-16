@@ -66,12 +66,14 @@
   ;; - see https://nrepl.org/
   ;; - start a basic nREPL server on a random available port:
   ;; REVIEW: BDS standard Port address
-  :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "RELEASE"}}
+  :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "RELEASE"}
+                       org.slf4j/slf4j-nop {:mvn/version "RELEASE"}}
           :main-opts ["-m" "nrepl.cmdline"
                       "-p" "8963"]}
   ;; - see https://nrepl.org/
   ;; - start a CIDER-enhanced nREPL server on a random available port:
-  :cider-nrepl {:extra-deps {cider/cider-nrepl {:mvn/version "RELEASE"}}
+  :cider-nrepl {:extra-deps {cider/cider-nrepl {:mvn/version "RELEASE"}
+                             org.slf4j/slf4j-nop {:mvn/version "RELEASE"}}
                 :main-opts ["-m" "nrepl.cmdline" "--port" "8963" "--middleware" "[cider.nrepl/cider-middleware]"]}
 
   ;; - see https://github.com/jimpil/jedi-time

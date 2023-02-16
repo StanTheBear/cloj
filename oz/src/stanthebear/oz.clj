@@ -2,9 +2,32 @@
   #_(:gen-class)
   (:require [oz.core :as oz]
             [clojure.core.reducers :as r]
+            [clojure.string :as str]
+            [clojure.spec.alpha :as s]
             [criterium.core :refer [bench]]))
 
-"Hello from Oz"
+(def non-empty-string? #(not (str/blank? %)))
+
+(s/def ::non-empty-string?
+  (s/and
+   string?
+   #(not (str/blank? %))))
+
+(s/def :person/fname ::non-empty-string?)
+
+(s/def :person/lname
+  ::non-empty-string?)
+
+(s/def :person/person
+  (s/keys :req [:person/fname
+                   :person/lname]))
+
+(defn make-person [fname lname]
+  (s/assert :person/person
+            {:person/fname fname
+             :person/lname lname}))
+
+(make-person "Amanda" "Andy")
 
 (defn play-data [& names]
   (for [n names
@@ -35,6 +58,17 @@
 
 (def contour-plot (oz/load "/home/kali/.clojure/oz/examples/contourlines.vega.json"))
 (oz/view! contour-plot :mode :vega)
+
+(transduce identity - 0 [-1 2 3])
+
+(map - 0 [-1 2 3])
+
+(= (transduce identity - 0 [-1 2 3])
+   (- 0 -1 2 3))
+
+(= (transduce identity - 0 [-1 2 3])
+   (- (- 0 -1 2 3)))
+
 
 (def stacked-bar
   {:data {:values
@@ -72,18 +106,6 @@
 
 (type bigvec)
 
-(bench  (reduce (inc-transducer +) 0  bigvec))
-;; Execution time mean : 2.323954 ms
-
-(bench (transduce inc-transducer + 0 bigvec))
-;; Execution time mean : 2.007487 ms
-(println (int (* 100 (/ (- 2.324 2.07) 2.324))) "% quicker" )
-
-(r/fold + (r/map (fn [x] (+ x 4)) bigvec))
-
-(bench (r/fold + (r/map inc4 bigvec)))
-;; Execution time mean : 1.125059 ms
-(println (int (* 100 (/ (- 2.324 1.125) 2.324))) "% quicker")
 
 
 (oz/view! stacked-bar)
@@ -104,4 +126,36 @@
   ;; (require '[clojure.tools.deps.alpha.repl :refer [add-libs]])
   ;; (add-libs '{http-kit/http-kit {:mvn/version "2.5.1"}})
   ;; (oz/publish! stacked-bar) ;; needs cheshire & needs Github credentials in /home/kali/.oz/github-creds.edn
+
+  (bench  (reduce (inc-transducer +) 0  bigvec))
+  ;; Execution time mean : 2.323954 ms
+
+  (bench (transduce inc-transducer + 0 bigvec))
+  ;; Execution time mean : 2.007487 ms
+
+  (println (int (* 100 (/ (- 2.324 2.07) 2.324))) "% quicker")
+
+  (r/fold + (r/map (fn [x] (+ x 4)) bigvec))
+
+  (bench (r/fold + (r/map inc4 bigvec)))
+  ;; Execution time mean : 1.125059 ms
+
+  (println (int (* 100 (/ (- 2.324 1.125) 2.324))) "% quicker")
+
+  (declare doThat)
+  (defn doThis [times]
+    ;; (letfn []
+    (print "Doing this! => ")
+    (println times)
+    (when (> times 0)
+      (doThat (- times 1))))
+
+  (defn doThat [timesThat]
+    (print "Doing that! => ")
+    (println timesThat)
+    (when (> timesThat 0)
+      (doThis (- timesThat 1))))
+
+  (doThis 3)
+
   :rcf)
